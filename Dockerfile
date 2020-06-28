@@ -5,6 +5,7 @@ WORKDIR /
 
 RUN pip install -r requirements.txt
 
-COPY ./mqtt2influxdb/* /
+COPY ./mqtt2influxdb /mqtt2influxdb
+COPY ./config.json /config.json
 
-CMD [ "python", "main.py" ]
+CMD [ "python", "/mqtt2influxdb/main.py" ]
