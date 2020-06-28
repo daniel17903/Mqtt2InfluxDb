@@ -2,9 +2,9 @@ import json
 import logging
 import os
 
-from mqtt2influxdb.influxdb_client import InfluxDbClient
-from mqtt2influxdb.mqtt2datapoint_converter import Mqtt2DataPointConverter
-from mqtt2influxdb.mqtt_client import MqttClient
+from influxdb_client import InfluxDbClient
+from mqtt2datapoint_converter import Mqtt2DataPointConverter
+from mqtt_client import MqttClient
 
 logging.basicConfig(level=os.environ.get("LOGLEVEL", "DEBUG"))
 
