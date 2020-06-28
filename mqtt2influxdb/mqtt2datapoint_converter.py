@@ -39,7 +39,7 @@ class Mqtt2DataPointConverter:
             value = value.replace("<topic>", value_from_topic)
             for placeholder in placeholders:
                 if placeholder == "topic": continue
-                value = value.replace("<%s>" % placeholder, self.data[placeholder])
+                value = value.replace("<%s>" % placeholder, str(self.data[placeholder]))
 
             if value.isnumeric(): value = float(value)
             template[key] = value
@@ -54,8 +54,8 @@ class Mqtt2DataPointConverter:
 
             datapoint_db_mappings[mapping["database"]].append({
                 "measurement": mapping["measurement"],
-                "tags": self._fill_placeholders(mapping["tags"]),
-                "fields": self._fill_placeholders(mapping["fields"]),
+                "tags": self._fill_placeholders(mapping["tags"].copy()),
+                "fields": self._fill_placeholders(mapping["fields"].copy()),
             })
 
         return datapoint_db_mappings
