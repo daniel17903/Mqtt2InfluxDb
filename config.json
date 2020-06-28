@@ -1,0 +1,61 @@
+{
+  "mqttConnection": {
+    "server": "192.168.178.50",
+    "port": 1883,
+    "user": "",
+    "password": ""
+  },
+  "influxDbConnection": {
+    "server": "192.168.178.50",
+    "port": 8086,
+    "user": "",
+    "password": ""
+  },
+  "topicDbMapping": [
+    {
+      "topic": "zigbee2mqtt/+",
+      "database": "battery",
+      "measurement": "battery",
+      "tags": {
+        "device": "<topic>"
+      },
+      "fields": {
+        "percentage": "<battery>",
+        "voltage": "<voltage>"
+      }
+    },
+    {
+      "topic": "zigbee2mqtt/+",
+      "database": "linkquality",
+      "measurement": "linkquality",
+      "tags": {
+        "device": "<topic>"
+      },
+      "fields": {
+        "linkquality": "<linkquality>"
+      }
+    },
+    {
+      "topic": "zigbee2mqtt/+",
+      "database": "illuminance",
+      "measurement": "illuminance",
+      "tags": {
+        "device": "<topic>"
+      },
+      "fields": {
+        "illuminance": "<illuminance>"
+      }
+    },
+    {
+      "topic": "zigbee2mqtt/+",
+      "database": "occupancy",
+      "measurement": "occupancy",
+      "tags": {
+        "device": "<topic>"
+      },
+      "fields": {
+        "occupancy": "<occupancy>"
+      }
+    }
+  ]
+}
